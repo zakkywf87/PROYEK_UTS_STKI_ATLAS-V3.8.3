@@ -1,0 +1,15 @@
+{
+  "name": "atlas-search",
+  "version": "3.3.0",
+  "private": true,
+  "description": "ATLAS - Search Beyond Keywords (VSM + TF-IDF)",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "serve": "node scripts/serve.js",
+    "vendor": "node scripts/vendor-sastrawijs.js",
+    "test": "node tests/engine.test.js"
+  },
+  "dependencies": {
+    "sastrawijs": "^1.1.0"
+  }
+}

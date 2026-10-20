@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATLAS — Search Beyond Keywords</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/app-icon.svg">
+  <meta name="theme-color" content="#37664B">
+  <!-- React & ReactDOM -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <!-- Babel Compiler -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- KaTeX: Visual Formula Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body class="bg-noise min-h-screen text-warmPaper flex flex-col ">
+  <div id="root">
+    <!-- Fallback bila dibuka lewat file:// tanpa server -->
+    <noscript>
+      <div style="padding:2rem;text-align:center;font-family:sans-serif;">
+        JavaScript diperlukan untuk menjalankan ATLAS Search.
+      </div>
+    </noscript>
+    <div id="file-protocol-warning" style="display:none;max-width:540px;margin:5rem auto;padding:1.5rem;background:#FFFDF6;border:2px solid #C45D3E;border-radius:12px;color:#263B31;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 10px 25px rgba(0,0,0,0.08);text-align:center;">
+      <div style="font-size:2rem;margin-bottom:0.5rem;">🚀</div>
+      <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:#C45D3E;">Cara Membuka ATLAS Search</h2>
+      <p style="font-size:0.9rem;line-height:1.6;margin-bottom:1rem;color:#5F7266;">
+        Karena kebijakan keamanan browser (CORS), berkas aplikasi tidak dapat dimuat langsung lewat <code>file://</code>.
+      </p>
+      <div style="background:#FAF4DF;padding:1rem;border-radius:8px;text-align:left;font-size:0.875rem;margin-bottom:1rem;border:1px solid #DDD5B8;">
+        <strong>Cara membuka tanpa ribet:</strong>
+        <ol style="margin-top:0.5rem;padding-left:1.25rem;line-height:1.6;">
+          <li>Klik ganda <b>buka-atlas.bat</b> di folder utama, ATAU</li>
+          <li>Jalankan <code>npm start</code> di terminal Anda.</li>
+        </ol>
+      </div>
+      <p style="font-size:0.8rem;color:#5F7266;">Browser akan terbuka secara otomatis di <code>http://localhost:8000</code>.</p>
+    </div>
+    <script>
+      if (window.location.protocol === 'file:') {
+        document.getElementById('file-protocol-warning').style.display = 'block';
+      }
+    </script>
+  </div>
+
+  <!-- Urutan penting: namespace -> config -> data -> nlp -> engine -> utils -> komponen -> main -->
+  <script src="src/namespace.js?v=3.6"></script>
+  <script src="src/config/tailwind.config.js?v=3.6"></script>
+  <script src="src/nlp/stopwords-id.js?v=3.6"></script>
+  <script src="src/nlp/stopwords-en.js?v=3.6"></script>
+  <script src="src/nlp/normalize.js?v=3.6"></script>
+  <script src="src/nlp/vendor/sastrawijs.umd.js?v=3.6"></script>
+  <script src="src/nlp/stemmer-id.js?v=3.6"></script>
+  <script src="src/nlp/kstem/kstem-lists.js?v=3.6"></script>
+  <script src="src/nlp/kstem/kstem-data.js?v=3.6"></script>
+  <script src="src/nlp/kstem/kstem.js?v=3.6"></script>
+  <script src="src/nlp/stemmer-en.js?v=3.6"></script>
+  <script src="src/nlp/language.js?v=3.6"></script>
+  <script src="src/nlp/pipeline.js?v=3.6"></script>
+  <script src="src/engine/vsm-engine.js?v=3.6"></script>
+  <script src="src/utils/csv.js?v=3.6"></script>
+  <script src="src/utils/storage.js?v=3.6"></script>
+  <script type="text/babel" src="src/components/Icon.jsx?v=3.6"></script>
+  <script type="text/babel" src="src/components/Logo.jsx?v=3.6"></script>
+  <script type="text/babel" src="src/components/CopyButton.jsx?v=3.6"></script>
+  <script type="text/babel" src="src/components/Modals.jsx?v=3.6"></script>
+  <script type="text/babel" src="src/components/SearchTab.jsx?v=3.6"></script>
+  <script type="text/babel" src="src/components/PreprocessingInspector.jsx?v=3.6"></script>
+  <script type="text/babel" src="src/components/CorpusExplorer.jsx?v=3.6"></script>
+  <script type="text/babel" src="src/components/AlgorithmExplanation.jsx?v=3.6"></script>
+  <script type="text/babel" src="src/App.jsx?v=3.6"></script>
+  <script type="text/babel" src="src/main.jsx?v=3.6"></script>
+</body>
+</html>
