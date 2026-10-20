@@ -10,7 +10,6 @@ atlas/
    index.html                  Kerangka aplikasi, pemuatan CDN (React, Tailwind, Babel, Animate.css, KaTeX) & urutan skrip
    buka-atlas.bat              Peluncur sekali klik Windows (menyalakan server & membuka browser otomatis)
    package.json                Konfigurasi npm (skrip start, serve, test, vendor)
-   README.md                   Dokumentasi proyek, panduan instalasi, panduan penggunaan
    LOGS.md                     Catatan rilis historis & hasil verifikasi fitur
    ARCHITECTURE.md             Dokumentasi arsitektur, alur data, dan modul NLP
    assets/
@@ -56,6 +55,7 @@ atlas/
          AlgorithmExplanation.jsx   Tab edukasi matematika VSM dengan visual KaTeX formula (Eq. 1-5)
       App.jsx                  Orkestrator state global, routing tab, status bar kompak, modal konfirmasi hapus dataset
       main.jsx                 Titik masuk React: merender AtlasApp ke DOM (#root)
+README.md                      Dokumentasi proyek, panduan instalasi, panduan penggunaan
 ```
 
 ---
