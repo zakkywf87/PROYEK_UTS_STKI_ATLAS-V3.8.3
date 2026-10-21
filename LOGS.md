@@ -1,5 +1,20 @@
 # LOGS — ATLAS
 
+## 2026-10-21 — v3.8.5 (Restrukturisasi Root Repositori GitHub ATLAS_V8 & Lembar Presensi STKI 15 Oktober)
+**Permintaan:** 1) Cantumkan laporan progress website sebagai lembar pengesahan presensi pertemuan STKI 15 Oktober 2026; 2) Rapikan seluruh file di folder `ATLAS_V8` dan selaraskan hierarki subfolder ke root standar repositori GitHub (tanpa subfolder ganda `atlas/`).
+
+**1. Penambahan Bukti Presensi Pertemuan STKI 15 Oktober 2026**
+- `LAPORAN_PROGRESS.md` diperbarui dengan banner resmi `[!IMPORTANT] LEMBAR PENGESAHAN PRESENSI PERKULIAHAN STKI (15 OKTOBER 2026)`.
+- Metadata dan linimasa kronologis diperluas mencakup tanggal 15 Oktober 2026 (Kickoff Perkuliahan STKI, arahan spesifikasi 4 fitur wajib IR UTS, dan penentuan dataset 1.000 judul referensi).
+
+**2. Restrukturisasi & Perapian Root Direktori Repositori `ATLAS_V8`**
+- Seluruh isi subfolder `atlas/` dipindahkan langsung ke root repositori `ATLAS_V8/` (`index.html`, `package.json`, `buka-atlas.bat`, `src/`, `assets/`, `dataset/`, `samples/`, `scripts/`, `tests/`, serta berkas markdown dokumentasi).
+- Subfolder `atlas/` yang redundan dihapus tuntas.
+- `ARCHITECTURE.md` disinkronkan ke struktur root standar GitHub.
+- Pengujian otomatis `npm test` diverifikasi dari root repo (100% lolos assertion).
+
+---
+
 ## 2026-10-20 — v3.8.3 (Hapus Folder Duplikat, Perbaikan Hover Portal, Dokumentasi White-Box & Demo)
 **Permintaan:** 1) Hapus folder `atlas/atlas/` duplikat dan `index.html` ganda; 2) Perbaiki hover Filtering & Stemming Trace yang masih bermasalah; 3) Buat `WHITE_BOX.md`.
 

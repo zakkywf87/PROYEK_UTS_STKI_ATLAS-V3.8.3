@@ -1,15 +1,18 @@
-# Arsitektur Kode ATLAS (v3.8)
+# Arsitektur Kode ATLAS (v3.8.4 — Final UTS Ready)
 
 Aplikasi pencarian informasi berbasis **Vector Space Model (VSM)**, pembobotan **TF-IDF**, dan **Cosine Similarity**. Berjalan penuh di sisi klien (browser) tanpa bundler rumit: berkas JavaScript biasa dimuat secara berurutan oleh `index.html` dan saling terhubung lewat namespace global `window.ATLAS`. Berkas `.js` dibungkus IIFE; berkas komponen `.jsx` dikompilasi oleh Babel standalone di browser, juga dibungkus IIFE.
 
 ---
 
 ## Struktur Direktori
-```
-atlas/
+```text
+ATLAS_V8/
    index.html                  Kerangka aplikasi, pemuatan CDN (React, Tailwind, Babel, Animate.css, KaTeX) & urutan skrip
    buka-atlas.bat              Peluncur sekali klik Windows (menyalakan server & membuka browser otomatis)
    package.json                Konfigurasi npm (skrip start, serve, test, vendor)
+   README.md                   Dokumentasi proyek, panduan instalasi, panduan penggunaan
+   LAPORAN_PROGRESS.md         Laporan resmi progres pengerjaan 4 fitur STKI UTS (15-21 Oktober 2026)
+   WHITE_BOX.md                Laporan pengujian white-box data flow testing, basis path, & branch coverage
    LOGS.md                     Catatan rilis historis & hasil verifikasi fitur
    ARCHITECTURE.md             Dokumentasi arsitektur, alur data, dan modul NLP
    assets/
@@ -25,7 +28,7 @@ atlas/
    src/
       namespace.js             Deklarasi namespace global: window.ATLAS = { config, data, nlp, engine, utils, components }
       config/
-         tailwind.config.js   Konfigurasi token warna Butter & Forest, tipografi Plus Jakarta Sans, dan styling Tailwind
+         tailwind.config.js    Konfigurasi token warna Butter & Forest, tipografi Plus Jakarta Sans, dan styling Tailwind
       nlp/                     Modul pra-proses teks & NLP
          normalize.js          Case folding, pembersihan karakter, penanganan kata majemuk (e-learning, wi-fi, dll.)
          stopwords-id.js       Kamus stopword Bahasa Indonesia (320+ kata; standar Tala + istilah ilmiah)
@@ -55,7 +58,6 @@ atlas/
          AlgorithmExplanation.jsx   Tab edukasi matematika VSM dengan visual KaTeX formula (Eq. 1-5)
       App.jsx                  Orkestrator state global, routing tab, status bar kompak, modal konfirmasi hapus dataset
       main.jsx                 Titik masuk React: merender AtlasApp ke DOM (#root)
-README.md                      Dokumentasi proyek, panduan instalasi, panduan penggunaan
 ```
 
 ---
@@ -227,4 +229,21 @@ Alur kalimat teks `Teks Asli → Case Folding → Tokenisasi → Stopword Remova
 ### 11. Status Bar Kompak (v3.8)
 - Dirampingkan menjadi satu baris horizontal fleksibel hemat ruang dengan font `text-[10px]` dan pemisah titik/garis (`│`, `·`).
 - Nama dataset dipotong elipsis jika panjang (`max-w-[200px] truncate`), dan tombol hapus dibuat proporsional tanpa memakan tinggi layar.
+
+### 12. React Portal Tooltip pada Token Trace (v3.8.3)
+Untuk mengatasi masalah pemotongan elemen (*overflow-clip*) pada kontainer token yang memiliki properti CSS `overflow-y-auto`, komponen `TokenBadge` dirombak menggunakan **React Portal**:
+- `ReactDOM.createPortal(tooltipNode, document.body)` menyuntikkan kartu tooltip langsung sebagai elemen anak langsung (*direct child*) dari `<body>`, terbebas seutuhnya dari batas hierarki container yang membatasi.
+- **Anti-Flicker**: `leaveTimer.current` (80ms `setTimeout`) berpadu dengan pembatalan instan `clearTimeout` saat kursor berpindah antar-badge token, menghasilkan pergerakan tanpa kedip.
+- **Auto-Dismiss Scroll**: Event listener `scroll` (capture phase) otomatis menyembunyikan tooltip saat halaman digulir sehingga tidak ada elemen melayang di luar konteks.
+- **Pengujian White-Box**: Didokumentasikan secara rinci di `WHITE_BOX.md` mencakup *Data Flow Testing* (6 du-paths), *CFG Basis Path* (McCabe Cyclomatic Complexity = 5), dan *Branch Coverage* (10/10 cabang — 100%).
+
+### 13. Ketercapaian Penuh 4 Fitur Utama STKI UTS (v3.8.4)
+Arsitektur ATLAS berhasil mengintegrasikan seluruh 4 fitur wajib yang diminta oleh Dosen Pengampu Sistem Temu Kembali Informasi (STKI):
+1. **Fitur 1 — Text Preprocessing Pipeline**: Rantai 5 tahap (Teks Asli > Case Folding > Tokenisasi > Stopword Removal > Stemming) dwibahasa (SastrawiJs + KStem Krovetz 27.495 leksikon), pemulihan kata rusak (`ID_ROOT_OVERRIDES`), alur interaktif dengan rujukan literatur akademik (Manning, Salton, Luhn, Krovetz, Adriani), serta inspeksi token trace dengan 3 warna indikator.
+2. **Fitur 2 — Indexing & Pembobotan TF-IDF**: Pembangunan Inverted Index cepat (~97 ms untuk 1.000 dokumen), pembobotan TF proporsional terhadap panjang dokumen, Smoothed IDF ($\ln(\frac{N+1}{DF+1})+1$), dan visualisasi KaTeX formal (Eq. 1 s/d Eq. 5).
+3. **Fitur 3 — Perangkingan Cosine Similarity & Transparansi Matematika**: Perhitungan sudut kosinus descending, penyorotan kata kunci (*highlight*), serta dialog dekonstruksi matematis ("Why this result?") yang menyajikan Norm Grid 7 kolom dan persentase kontribusi bobot per-term.
+4. **Fitur 4 — Manajemen Dataset Dinamis & UI/UX**: Ingestion CSV multi-kolom RFC 4180 (drag & drop global), persistensi penyimpanan IndexedDB, penanganan dataset kosong, dialog konfirmasi hapus bertema *Butter & Forest*, kueri rekomendasi dinamis (kategori + n-gram), dan peluncur tanpa ribet `buka-atlas.bat`.
+
+*(Dokumentasi historis progres harian dari 16 Oktober hingga 21 Oktober 2026 terdokumentasi lengkap di berkas [LAPORAN_PROGRESS.md](file:///c:/Users/ASUS/Documents/KRS%20SMT7/STKI/UTS/ATLAS_V8/atlas/LAPORAN_PROGRESS.md))*.
+
 
