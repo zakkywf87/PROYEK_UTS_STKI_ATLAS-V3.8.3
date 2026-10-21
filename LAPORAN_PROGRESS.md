@@ -1,7 +1,7 @@
-# LAPORAN PROGRESS PENGEMBANGAN WEBSITE SISTEM TEMU KEMBALI INFORMASI (STKI)
+# LAPORAN PROGRESS PENGEMBANGAN WEBSITE SISTEM TEMU KEMBALI INFORMASI (STKI) Kelompok 8
 ## Proyek UTS: ATLAS (Automated Text Retrieval & Linguistic Analysis System)
 > **Mata Kuliah**: Sistem Temu Kembali Informasi (STKI) — Semester 7  
-> **Institusi**: Program Studi Informatika / Teknik Informatika  
+> **Institusi**: Program Studi S1 Pendidikan Teknologi Informasi  
 > **Tujuan Dokumen**: **Bukti Presensi Kehadiran Kuliah STKI (Pertemuan Minggu Lalu: 15 Oktober 2026)** & Laporan Progres Pra-Demo UTS  
 > **Model IR**: Vector Space Model (VSM) · TF-IDF (Term Frequency - Inverse Document Frequency) · Cosine Similarity  
 > **Dataset**: *Dataset 1.000 Judul Referensi Tugas Akhir — Gamifikasi Web, AI Virtual Tutor & TKJ SMK*  
@@ -211,7 +211,7 @@ Pengujian otomatis dijalankan secara berkala pada korpus tugas akhir (1.000 doku
 Letak berkas laporan progress ini diatur di direktori utama `atlas/LAPORAN_PROGRESS.md` agar berdampingan langsung dengan seluruh arsitektur dan dokumentasi teknis sistem:
 
 ```
-ATLAS_V8/
+ATLAS_V3.8.3/
 ├── atlas/
 │   ├── LAPORAN_PROGRESS.md        <-- DOKUMEN LAPORAN PROGRESS UTAMA (BERKAS INI)
 │   ├── ARCHITECTURE.md            <-- Dokumentasi Arsitektur Sistem Lengkap (Terbarui)
