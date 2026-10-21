@@ -1,4 +1,4 @@
-# ATLAS — Search Beyond Keywords
+# ATLAS (Automated Text Retrieval & Linguistic Analysis System)
 
 Aplikasi web mesin pencari berbasis **Vector Space Model (VSM)**, pembobotan **TF-IDF**, dan perangkingan **Cosine Similarity**. Berjalan penuh di browser (React + Tailwind + Animate.css via CDN) — tanpa backend, tanpa build step.
 
