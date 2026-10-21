@@ -241,6 +241,4 @@ ATLAS_V3.8.3/
 ```
 
 ---
-
----
 *Laporan Progres Resmi ini disusun pada tanggal 21 Oktober 2026 untuk memenuhi syarat evaluasi Ujian Tengah Semester (UTS) mata kuliah Sistem Temu Kembali Informasi.*
