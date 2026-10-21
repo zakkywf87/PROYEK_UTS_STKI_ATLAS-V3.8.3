@@ -242,19 +242,5 @@ ATLAS_V3.8.3/
 
 ---
 
-## 6. Kesiapan Pengumpulan Video Demo & Tautan GitHub
-
-Dengan selesainya seluruh implementasi dan pengujian di atas:
-1. **Kesiapan Video Demonstrasi**:
-   - Seluruh alur sistem telah siap didemonstrasikan secara langsung di browser tanpa kendala error atau visual glitch.
-   - Skenario pengujian interaktif mencakup:
-     * *Skenario 1*: Demonstrasi Ingestion Dataset CSV (drag & drop, auto-mapping, persistensi IndexedDB, dan dialog hapus).
-     * *Skenario 2*: Demonstrasi Preprocessing Pipeline (alur teks interaktif, tooltip referensi ilmiah, dan trace token portal tooltip).
-     * *Skenario 3*: Demonstrasi Inverted Index & Visual KaTeX Formula di Tab Algorithm.
-     * *Skenario 4*: Demonstrasi Pencarian Kueri Bilingual, Cosine Similarity Ranking, Filter Skor/Kategori, dan pembuktian matematika *Why this result?*.
-2. **Kesiapan Tautan Repositori GitHub**:
-   - Repositori git telah dirapikan (bebas dari berkas sampah, folder duplikat, maupun file build temporer).
-   - Seluruh dokumentasi pendukung (`LAPORAN_PROGRESS.md`, `ARCHITECTURE.md`, `LOGS.md`, `WHITE_BOX.md`) telah disinkronkan secara presisi untuk mempermudah evaluasi penilaian oleh Dosen Pengampu.
-
 ---
 *Laporan Progres Resmi ini disusun pada tanggal 21 Oktober 2026 untuk memenuhi syarat evaluasi Ujian Tengah Semester (UTS) mata kuliah Sistem Temu Kembali Informasi.*
