@@ -1,7 +1,7 @@
 # LOGS — ATLAS
 
 ## 2026-10-20 — v3.8.3 (Hapus Folder Duplikat, Perbaikan Hover Portal, Dokumentasi White-Box & Demo)
-**Permintaan:** 1) Hapus folder `atlas/atlas/` duplikat dan `index.html` ganda; 2) Perbaiki hover Filtering & Stemming Trace yang masih bermasalah; 3) Buat `WHITE_BOX.md`; 4) Buat `DEMO_APP.md` skenario 4 personel.
+**Permintaan:** 1) Hapus folder `atlas/atlas/` duplikat dan `index.html` ganda; 2) Perbaiki hover Filtering & Stemming Trace yang masih bermasalah; 3) Buat `WHITE_BOX.md`.
 
 **1. Hapus Folder Duplikat**
 - Direktori `atlas/atlas/` beserta `index.html` di dalamnya dihapus permanen via `Remove-Item`.
